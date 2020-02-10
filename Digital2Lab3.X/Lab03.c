@@ -32,8 +32,41 @@
 
 
 #include <xc.h>
+#include <stdio.h>
+#include "LCD.h"
+
+#define _XTAL_FREQ 4000000
+
 
 void main(void) {
+    PORTA = 0;
+    TRISA = 1;
+    PORTB = 0;
+    TRISB = 0;
+    PORTC = 0;
+    TRISC = 0;
+    PORTD = 0;
+    TRISD = 0;
+    PORTE = 0;
+    TRISE = 0;
+    
+    ANSEL = 0;
+    ANSELH = 0;
+    
+    startLCD();
+    limpiarLCD();
+    
+    while(1) {
+        setLCD(1,1);
+        escribirLCD("S1");
+        setLCD(1,8);
+        escribirLCD("S2");
+        setLCD(1,15);
+        escribirLCD("S3");
+        __delay_ms(5000);
+    
+    }
+    
     
     return;
 }
