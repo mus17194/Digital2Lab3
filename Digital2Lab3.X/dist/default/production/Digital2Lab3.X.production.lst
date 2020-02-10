@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.10 build 88905656 
-                                                                                               Sun Feb 09 22:21:56 2020
+                                                                                               Mon Feb 10 12:43:42 2020
 
 Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
      1                           	processor	16F887
@@ -1252,8 +1252,8 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1238  1058  0189               	clrf	9	;volatile
   1239  1059                     l3644:	
   1240                           
-  1241                           ;Lab03.c: 55:     ANSEL = 0b00000011;
-  1242  1059  3003               	movlw	3
+  1241                           ;Lab03.c: 55:     ANSEL = 0b00001111;
+  1242  1059  300F               	movlw	15
   1243  105A  1683               	bsf	3,5	;RP0=1, select bank3
   1244  105B  1703               	bsf	3,6	;RP1=1, select bank3
   1245  105C  0088               	movwf	8	;volatile
@@ -1292,8 +1292,8 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1276  1079  160A  158A  2235  160A  118A  	fcall	_escribirLCD
   1277  107E                     l3654:	
   1278                           
-  1279                           ;Lab03.c: 71:         init_ADC(0x00);
-  1280  107E  3000               	movlw	0
+  1279                           ;Lab03.c: 71:         init_ADC(0x01);
+  1280  107E  3001               	movlw	1
   1281  107F  160A  158A  2527  160A  118A  	fcall	_init_ADC
   1282  1084                     l3656:	
   1283                           
@@ -1302,209 +1302,209 @@ Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1
   1286  1085  1303               	bcf	3,6	;RP1=0, select bank0
   1287  1086  130C               	bcf	12,6	;volatile
   1288  1087                     l3658:	
-  1289  1087  081E               	movf	30,w	;volatile
-  1290  1088                     l3660:	
-  1291                           
-  1292                           ;Lab03.c: 74:         dat3 = (5.0*ADRESH)/255;
-  1293  1088  3043               	movlw	67
-  1294  1089  00C1               	movwf	___fldiv@a+3
-  1295  108A  307F               	movlw	127
-  1296  108B  00C0               	movwf	___fldiv@a+2
-  1297  108C  3000               	movlw	0
-  1298  108D  00BF               	movwf	___fldiv@a+1
-  1299  108E  3000               	movlw	0
-  1300  108F  00BE               	movwf	___fldiv@a
-  1301  1090  3040               	movlw	64
-  1302  1091  00A7               	movwf	___flmul@b+3
-  1303  1092  30A0               	movlw	160
-  1304  1093  00A6               	movwf	___flmul@b+2
-  1305  1094  3000               	movlw	0
-  1306  1095  00A5               	movwf	___flmul@b+1
-  1307  1096  3000               	movlw	0
-  1308  1097  00A4               	movwf	___flmul@b
-  1309  1098  081E               	movf	30,w	;volatile
-  1310  1099  1683               	bsf	3,5	;RP0=1, select bank1
-  1311  109A  1303               	bcf	3,6	;RP1=0, select bank1
-  1312  109B  00C9               	movwf	??_main^(0+128)
-  1313  109C  01CA               	clrf	(??_main^(0+128)+1)
-  1314  109D  01CB               	clrf	(??_main^(0+128)+2)
-  1315  109E  01CC               	clrf	(??_main^(0+128)+3)
-  1316  109F  084C               	movf	(??_main+3)^(0+128),w
-  1317  10A0  00F3               	movwf	___xxtofl@val+3
-  1318  10A1  084B               	movf	(??_main+2)^(0+128),w
-  1319  10A2  00F2               	movwf	___xxtofl@val+2
-  1320  10A3  084A               	movf	(??_main+1)^(0+128),w
-  1321  10A4  00F1               	movwf	___xxtofl@val+1
-  1322  10A5  0849               	movf	??_main^(0+128),w
-  1323  10A6  00F0               	movwf	___xxtofl@val
-  1324  10A7  3001               	movlw	1
-  1325  10A8  160A  158A  25CB  160A  118A  	fcall	___xxtofl
-  1326  10AD  0873               	movf	?___xxtofl+3,w
-  1327  10AE  1283               	bcf	3,5	;RP0=0, select bank0
-  1328  10AF  1303               	bcf	3,6	;RP1=0, select bank0
-  1329  10B0  00AB               	movwf	___flmul@a+3
-  1330  10B1  0872               	movf	?___xxtofl+2,w
-  1331  10B2  00AA               	movwf	___flmul@a+2
-  1332  10B3  0871               	movf	?___xxtofl+1,w
-  1333  10B4  00A9               	movwf	___flmul@a+1
-  1334  10B5  0870               	movf	?___xxtofl,w
-  1335  10B6  00A8               	movwf	___flmul@a
-  1336  10B7  120A  158A  249F  160A  118A  	fcall	___flmul
-  1337  10BC  1283               	bcf	3,5	;RP0=0, select bank0
-  1338  10BD  1303               	bcf	3,6	;RP1=0, select bank0
-  1339  10BE  0827               	movf	?___flmul+3,w
-  1340  10BF  00C5               	movwf	___fldiv@b+3
-  1341  10C0  0826               	movf	?___flmul+2,w
-  1342  10C1  00C4               	movwf	___fldiv@b+2
-  1343  10C2  0825               	movf	?___flmul+1,w
-  1344  10C3  00C3               	movwf	___fldiv@b+1
-  1345  10C4  0824               	movf	?___flmul,w
-  1346  10C5  00C2               	movwf	___fldiv@b
-  1347  10C6  160A  118A  2190  160A  118A  	fcall	___fldiv
-  1348  10CB  1283               	bcf	3,5	;RP0=0, select bank0
-  1349  10CC  1303               	bcf	3,6	;RP1=0, select bank0
-  1350  10CD  0841               	movf	?___fldiv+3,w
-  1351  10CE  1683               	bsf	3,5	;RP0=1, select bank1
-  1352  10CF  1303               	bcf	3,6	;RP1=0, select bank1
-  1353  10D0  00E4               	movwf	(main@dat3+3)^(0+128)
-  1354  10D1  1283               	bcf	3,5	;RP0=0, select bank0
-  1355  10D2  1303               	bcf	3,6	;RP1=0, select bank0
-  1356  10D3  0840               	movf	?___fldiv+2,w
-  1357  10D4  1683               	bsf	3,5	;RP0=1, select bank1
-  1358  10D5  1303               	bcf	3,6	;RP1=0, select bank1
-  1359  10D6  00E3               	movwf	(main@dat3+2)^(0+128)
-  1360  10D7  1283               	bcf	3,5	;RP0=0, select bank0
-  1361  10D8  1303               	bcf	3,6	;RP1=0, select bank0
-  1362  10D9  083F               	movf	?___fldiv+1,w
-  1363  10DA  1683               	bsf	3,5	;RP0=1, select bank1
-  1364  10DB  1303               	bcf	3,6	;RP1=0, select bank1
-  1365  10DC  00E2               	movwf	(main@dat3+1)^(0+128)
-  1366  10DD  1283               	bcf	3,5	;RP0=0, select bank0
-  1367  10DE  1303               	bcf	3,6	;RP1=0, select bank0
-  1368  10DF  083E               	movf	?___fldiv,w
-  1369  10E0  1683               	bsf	3,5	;RP0=1, select bank1
-  1370  10E1  1303               	bcf	3,6	;RP1=0, select bank1
-  1371  10E2  00E1               	movwf	main@dat3^(0+128)
-  1372  10E3                     l3662:	
-  1373                           
-  1374                           ;Lab03.c: 75:         _delay((unsigned long)((500)*(4000000/4000000.0)));
-  1375  10E3  30A5               	movlw	165
-  1376  10E4  1683               	bsf	3,5	;RP0=1, select bank1
-  1377  10E5  1303               	bcf	3,6	;RP1=0, select bank1
-  1378  10E6  00C9               	movwf	??_main^(0+128)
-  1379  10E7                     u6117:	
-  1380  10E7  0BC9               	decfsz	??_main^(0+128),f
-  1381  10E8  28E7               	goto	u6117
-  1382  10E9  28EA               	nop2
-  1383  10EA                     l3664:	
-  1384                           
-  1385                           ;Lab03.c: 78:         init_ADC(0x01);
-  1386  10EA  3001               	movlw	1
-  1387  10EB  160A  158A  2527  160A  118A  	fcall	_init_ADC
-  1388  10F0                     l3666:	
-  1389                           
-  1390                           ;Lab03.c: 79:         PIR1bits.ADIF = 0;
-  1391  10F0  1283               	bcf	3,5	;RP0=0, select bank0
-  1392  10F1  1303               	bcf	3,6	;RP1=0, select bank0
-  1393  10F2  130C               	bcf	12,6	;volatile
-  1394  10F3                     l3668:	
-  1395  10F3  081E               	movf	30,w	;volatile
-  1396  10F4                     l3670:	
+  1289                           
+  1290                           ;Lab03.c: 73:         dat4 = (5.0*ADRESH)/254.0;
+  1291  1087  3043               	movlw	67
+  1292  1088  00C1               	movwf	___fldiv@a+3
+  1293  1089  307E               	movlw	126
+  1294  108A  00C0               	movwf	___fldiv@a+2
+  1295  108B  3000               	movlw	0
+  1296  108C  00BF               	movwf	___fldiv@a+1
+  1297  108D  3000               	movlw	0
+  1298  108E  00BE               	movwf	___fldiv@a
+  1299  108F  3040               	movlw	64
+  1300  1090  00A7               	movwf	___flmul@b+3
+  1301  1091  30A0               	movlw	160
+  1302  1092  00A6               	movwf	___flmul@b+2
+  1303  1093  3000               	movlw	0
+  1304  1094  00A5               	movwf	___flmul@b+1
+  1305  1095  3000               	movlw	0
+  1306  1096  00A4               	movwf	___flmul@b
+  1307  1097  081E               	movf	30,w	;volatile
+  1308  1098  1683               	bsf	3,5	;RP0=1, select bank1
+  1309  1099  1303               	bcf	3,6	;RP1=0, select bank1
+  1310  109A  00C9               	movwf	??_main^(0+128)
+  1311  109B  01CA               	clrf	(??_main^(0+128)+1)
+  1312  109C  01CB               	clrf	(??_main^(0+128)+2)
+  1313  109D  01CC               	clrf	(??_main^(0+128)+3)
+  1314  109E  084C               	movf	(??_main+3)^(0+128),w
+  1315  109F  00F3               	movwf	___xxtofl@val+3
+  1316  10A0  084B               	movf	(??_main+2)^(0+128),w
+  1317  10A1  00F2               	movwf	___xxtofl@val+2
+  1318  10A2  084A               	movf	(??_main+1)^(0+128),w
+  1319  10A3  00F1               	movwf	___xxtofl@val+1
+  1320  10A4  0849               	movf	??_main^(0+128),w
+  1321  10A5  00F0               	movwf	___xxtofl@val
+  1322  10A6  3001               	movlw	1
+  1323  10A7  160A  158A  25CB  160A  118A  	fcall	___xxtofl
+  1324  10AC  0873               	movf	?___xxtofl+3,w
+  1325  10AD  1283               	bcf	3,5	;RP0=0, select bank0
+  1326  10AE  1303               	bcf	3,6	;RP1=0, select bank0
+  1327  10AF  00AB               	movwf	___flmul@a+3
+  1328  10B0  0872               	movf	?___xxtofl+2,w
+  1329  10B1  00AA               	movwf	___flmul@a+2
+  1330  10B2  0871               	movf	?___xxtofl+1,w
+  1331  10B3  00A9               	movwf	___flmul@a+1
+  1332  10B4  0870               	movf	?___xxtofl,w
+  1333  10B5  00A8               	movwf	___flmul@a
+  1334  10B6  120A  158A  249F  160A  118A  	fcall	___flmul
+  1335  10BB  1283               	bcf	3,5	;RP0=0, select bank0
+  1336  10BC  1303               	bcf	3,6	;RP1=0, select bank0
+  1337  10BD  0827               	movf	?___flmul+3,w
+  1338  10BE  00C5               	movwf	___fldiv@b+3
+  1339  10BF  0826               	movf	?___flmul+2,w
+  1340  10C0  00C4               	movwf	___fldiv@b+2
+  1341  10C1  0825               	movf	?___flmul+1,w
+  1342  10C2  00C3               	movwf	___fldiv@b+1
+  1343  10C3  0824               	movf	?___flmul,w
+  1344  10C4  00C2               	movwf	___fldiv@b
+  1345  10C5  160A  118A  2190  160A  118A  	fcall	___fldiv
+  1346  10CA  1283               	bcf	3,5	;RP0=0, select bank0
+  1347  10CB  1303               	bcf	3,6	;RP1=0, select bank0
+  1348  10CC  0841               	movf	?___fldiv+3,w
+  1349  10CD  1683               	bsf	3,5	;RP0=1, select bank1
+  1350  10CE  1303               	bcf	3,6	;RP1=0, select bank1
+  1351  10CF  00E8               	movwf	(main@dat4+3)^(0+128)
+  1352  10D0  1283               	bcf	3,5	;RP0=0, select bank0
+  1353  10D1  1303               	bcf	3,6	;RP1=0, select bank0
+  1354  10D2  0840               	movf	?___fldiv+2,w
+  1355  10D3  1683               	bsf	3,5	;RP0=1, select bank1
+  1356  10D4  1303               	bcf	3,6	;RP1=0, select bank1
+  1357  10D5  00E7               	movwf	(main@dat4+2)^(0+128)
+  1358  10D6  1283               	bcf	3,5	;RP0=0, select bank0
+  1359  10D7  1303               	bcf	3,6	;RP1=0, select bank0
+  1360  10D8  083F               	movf	?___fldiv+1,w
+  1361  10D9  1683               	bsf	3,5	;RP0=1, select bank1
+  1362  10DA  1303               	bcf	3,6	;RP1=0, select bank1
+  1363  10DB  00E6               	movwf	(main@dat4+1)^(0+128)
+  1364  10DC  1283               	bcf	3,5	;RP0=0, select bank0
+  1365  10DD  1303               	bcf	3,6	;RP1=0, select bank0
+  1366  10DE  083E               	movf	?___fldiv,w
+  1367  10DF  1683               	bsf	3,5	;RP0=1, select bank1
+  1368  10E0  1303               	bcf	3,6	;RP1=0, select bank1
+  1369  10E1  00E5               	movwf	main@dat4^(0+128)
+  1370  10E2                     l3660:	
+  1371  10E2  1283               	bcf	3,5	;RP0=0, select bank0
+  1372  10E3  1303               	bcf	3,6	;RP1=0, select bank0
+  1373  10E4  081E               	movf	30,w	;volatile
+  1374  10E5                     l3662:	
+  1375                           
+  1376                           ;Lab03.c: 76:         _delay((unsigned long)((500)*(4000000/4000000.0)));
+  1377  10E5  30A5               	movlw	165
+  1378  10E6  1683               	bsf	3,5	;RP0=1, select bank1
+  1379  10E7  1303               	bcf	3,6	;RP1=0, select bank1
+  1380  10E8  00C9               	movwf	??_main^(0+128)
+  1381  10E9                     u6117:	
+  1382  10E9  0BC9               	decfsz	??_main^(0+128),f
+  1383  10EA  28E9               	goto	u6117
+  1384  10EB  28EC               	nop2
+  1385  10EC                     l3664:	
+  1386                           
+  1387                           ;Lab03.c: 78:         init_ADC(0x00);
+  1388  10EC  3000               	movlw	0
+  1389  10ED  160A  158A  2527  160A  118A  	fcall	_init_ADC
+  1390  10F2                     l3666:	
+  1391                           
+  1392                           ;Lab03.c: 79:         PIR1bits.ADIF = 0;
+  1393  10F2  1283               	bcf	3,5	;RP0=0, select bank0
+  1394  10F3  1303               	bcf	3,6	;RP1=0, select bank0
+  1395  10F4  130C               	bcf	12,6	;volatile
+  1396  10F5                     l3668:	
   1397                           
-  1398                           ;Lab03.c: 81:         dat4 = (5.0*ADRESH)/255;
-  1399  10F4  3043               	movlw	67
-  1400  10F5  00C1               	movwf	___fldiv@a+3
-  1401  10F6  307F               	movlw	127
-  1402  10F7  00C0               	movwf	___fldiv@a+2
-  1403  10F8  3000               	movlw	0
-  1404  10F9  00BF               	movwf	___fldiv@a+1
-  1405  10FA  3000               	movlw	0
-  1406  10FB  00BE               	movwf	___fldiv@a
-  1407  10FC  3040               	movlw	64
-  1408  10FD  00A7               	movwf	___flmul@b+3
-  1409  10FE  30A0               	movlw	160
-  1410  10FF  00A6               	movwf	___flmul@b+2
-  1411  1100  3000               	movlw	0
-  1412  1101  00A5               	movwf	___flmul@b+1
-  1413  1102  3000               	movlw	0
-  1414  1103  00A4               	movwf	___flmul@b
-  1415  1104  081E               	movf	30,w	;volatile
-  1416  1105  1683               	bsf	3,5	;RP0=1, select bank1
-  1417  1106  1303               	bcf	3,6	;RP1=0, select bank1
-  1418  1107  00C9               	movwf	??_main^(0+128)
-  1419  1108  01CA               	clrf	(??_main^(0+128)+1)
-  1420  1109  01CB               	clrf	(??_main^(0+128)+2)
-  1421  110A  01CC               	clrf	(??_main^(0+128)+3)
-  1422  110B  084C               	movf	(??_main+3)^(0+128),w
-  1423  110C  00F3               	movwf	___xxtofl@val+3
-  1424  110D  084B               	movf	(??_main+2)^(0+128),w
-  1425  110E  00F2               	movwf	___xxtofl@val+2
-  1426  110F  084A               	movf	(??_main+1)^(0+128),w
-  1427  1110  00F1               	movwf	___xxtofl@val+1
-  1428  1111  0849               	movf	??_main^(0+128),w
-  1429  1112  00F0               	movwf	___xxtofl@val
-  1430  1113  3001               	movlw	1
-  1431  1114  160A  158A  25CB  160A  118A  	fcall	___xxtofl
-  1432  1119  0873               	movf	?___xxtofl+3,w
-  1433  111A  1283               	bcf	3,5	;RP0=0, select bank0
-  1434  111B  1303               	bcf	3,6	;RP1=0, select bank0
-  1435  111C  00AB               	movwf	___flmul@a+3
-  1436  111D  0872               	movf	?___xxtofl+2,w
-  1437  111E  00AA               	movwf	___flmul@a+2
-  1438  111F  0871               	movf	?___xxtofl+1,w
-  1439  1120  00A9               	movwf	___flmul@a+1
-  1440  1121  0870               	movf	?___xxtofl,w
-  1441  1122  00A8               	movwf	___flmul@a
-  1442  1123  120A  158A  249F  160A  118A  	fcall	___flmul
-  1443  1128  1283               	bcf	3,5	;RP0=0, select bank0
-  1444  1129  1303               	bcf	3,6	;RP1=0, select bank0
-  1445  112A  0827               	movf	?___flmul+3,w
-  1446  112B  00C5               	movwf	___fldiv@b+3
-  1447  112C  0826               	movf	?___flmul+2,w
-  1448  112D  00C4               	movwf	___fldiv@b+2
-  1449  112E  0825               	movf	?___flmul+1,w
-  1450  112F  00C3               	movwf	___fldiv@b+1
-  1451  1130  0824               	movf	?___flmul,w
-  1452  1131  00C2               	movwf	___fldiv@b
-  1453  1132  160A  118A  2190  160A  118A  	fcall	___fldiv
-  1454  1137  1283               	bcf	3,5	;RP0=0, select bank0
-  1455  1138  1303               	bcf	3,6	;RP1=0, select bank0
-  1456  1139  0841               	movf	?___fldiv+3,w
-  1457  113A  1683               	bsf	3,5	;RP0=1, select bank1
-  1458  113B  1303               	bcf	3,6	;RP1=0, select bank1
-  1459  113C  00E8               	movwf	(main@dat4+3)^(0+128)
-  1460  113D  1283               	bcf	3,5	;RP0=0, select bank0
-  1461  113E  1303               	bcf	3,6	;RP1=0, select bank0
-  1462  113F  0840               	movf	?___fldiv+2,w
-  1463  1140  1683               	bsf	3,5	;RP0=1, select bank1
-  1464  1141  1303               	bcf	3,6	;RP1=0, select bank1
-  1465  1142  00E7               	movwf	(main@dat4+2)^(0+128)
-  1466  1143  1283               	bcf	3,5	;RP0=0, select bank0
-  1467  1144  1303               	bcf	3,6	;RP1=0, select bank0
-  1468  1145  083F               	movf	?___fldiv+1,w
-  1469  1146  1683               	bsf	3,5	;RP0=1, select bank1
-  1470  1147  1303               	bcf	3,6	;RP1=0, select bank1
-  1471  1148  00E6               	movwf	(main@dat4+1)^(0+128)
-  1472  1149  1283               	bcf	3,5	;RP0=0, select bank0
-  1473  114A  1303               	bcf	3,6	;RP1=0, select bank0
-  1474  114B  083E               	movf	?___fldiv,w
-  1475  114C  1683               	bsf	3,5	;RP0=1, select bank1
-  1476  114D  1303               	bcf	3,6	;RP1=0, select bank1
-  1477  114E  00E5               	movwf	main@dat4^(0+128)
-  1478  114F                     l3672:	
-  1479                           
-  1480                           ;Lab03.c: 82:         _delay((unsigned long)((50)*(4000000/4000.0)));
-  1481  114F  3041               	movlw	65
-  1482  1150  1683               	bsf	3,5	;RP0=1, select bank1
-  1483  1151  1303               	bcf	3,6	;RP1=0, select bank1
-  1484  1152  00CA               	movwf	(??_main^(0+128)+1)
-  1485  1153  30ED               	movlw	237
-  1486  1154  00C9               	movwf	??_main^(0+128)
-  1487  1155                     u6127:	
-  1488  1155  0BC9               	decfsz	??_main^(0+128),f
-  1489  1156  2955               	goto	u6127
-  1490  1157  0BCA               	decfsz	(??_main^(0+128)+1),f
-  1491  1158  2955               	goto	u6127
+  1398                           ;Lab03.c: 80:         dat3 = (5.0*ADRESH)/254.0;
+  1399  10F5  3043               	movlw	67
+  1400  10F6  00C1               	movwf	___fldiv@a+3
+  1401  10F7  307E               	movlw	126
+  1402  10F8  00C0               	movwf	___fldiv@a+2
+  1403  10F9  3000               	movlw	0
+  1404  10FA  00BF               	movwf	___fldiv@a+1
+  1405  10FB  3000               	movlw	0
+  1406  10FC  00BE               	movwf	___fldiv@a
+  1407  10FD  3040               	movlw	64
+  1408  10FE  00A7               	movwf	___flmul@b+3
+  1409  10FF  30A0               	movlw	160
+  1410  1100  00A6               	movwf	___flmul@b+2
+  1411  1101  3000               	movlw	0
+  1412  1102  00A5               	movwf	___flmul@b+1
+  1413  1103  3000               	movlw	0
+  1414  1104  00A4               	movwf	___flmul@b
+  1415  1105  081E               	movf	30,w	;volatile
+  1416  1106  1683               	bsf	3,5	;RP0=1, select bank1
+  1417  1107  1303               	bcf	3,6	;RP1=0, select bank1
+  1418  1108  00C9               	movwf	??_main^(0+128)
+  1419  1109  01CA               	clrf	(??_main^(0+128)+1)
+  1420  110A  01CB               	clrf	(??_main^(0+128)+2)
+  1421  110B  01CC               	clrf	(??_main^(0+128)+3)
+  1422  110C  084C               	movf	(??_main+3)^(0+128),w
+  1423  110D  00F3               	movwf	___xxtofl@val+3
+  1424  110E  084B               	movf	(??_main+2)^(0+128),w
+  1425  110F  00F2               	movwf	___xxtofl@val+2
+  1426  1110  084A               	movf	(??_main+1)^(0+128),w
+  1427  1111  00F1               	movwf	___xxtofl@val+1
+  1428  1112  0849               	movf	??_main^(0+128),w
+  1429  1113  00F0               	movwf	___xxtofl@val
+  1430  1114  3001               	movlw	1
+  1431  1115  160A  158A  25CB  160A  118A  	fcall	___xxtofl
+  1432  111A  0873               	movf	?___xxtofl+3,w
+  1433  111B  1283               	bcf	3,5	;RP0=0, select bank0
+  1434  111C  1303               	bcf	3,6	;RP1=0, select bank0
+  1435  111D  00AB               	movwf	___flmul@a+3
+  1436  111E  0872               	movf	?___xxtofl+2,w
+  1437  111F  00AA               	movwf	___flmul@a+2
+  1438  1120  0871               	movf	?___xxtofl+1,w
+  1439  1121  00A9               	movwf	___flmul@a+1
+  1440  1122  0870               	movf	?___xxtofl,w
+  1441  1123  00A8               	movwf	___flmul@a
+  1442  1124  120A  158A  249F  160A  118A  	fcall	___flmul
+  1443  1129  1283               	bcf	3,5	;RP0=0, select bank0
+  1444  112A  1303               	bcf	3,6	;RP1=0, select bank0
+  1445  112B  0827               	movf	?___flmul+3,w
+  1446  112C  00C5               	movwf	___fldiv@b+3
+  1447  112D  0826               	movf	?___flmul+2,w
+  1448  112E  00C4               	movwf	___fldiv@b+2
+  1449  112F  0825               	movf	?___flmul+1,w
+  1450  1130  00C3               	movwf	___fldiv@b+1
+  1451  1131  0824               	movf	?___flmul,w
+  1452  1132  00C2               	movwf	___fldiv@b
+  1453  1133  160A  118A  2190  160A  118A  	fcall	___fldiv
+  1454  1138  1283               	bcf	3,5	;RP0=0, select bank0
+  1455  1139  1303               	bcf	3,6	;RP1=0, select bank0
+  1456  113A  0841               	movf	?___fldiv+3,w
+  1457  113B  1683               	bsf	3,5	;RP0=1, select bank1
+  1458  113C  1303               	bcf	3,6	;RP1=0, select bank1
+  1459  113D  00E4               	movwf	(main@dat3+3)^(0+128)
+  1460  113E  1283               	bcf	3,5	;RP0=0, select bank0
+  1461  113F  1303               	bcf	3,6	;RP1=0, select bank0
+  1462  1140  0840               	movf	?___fldiv+2,w
+  1463  1141  1683               	bsf	3,5	;RP0=1, select bank1
+  1464  1142  1303               	bcf	3,6	;RP1=0, select bank1
+  1465  1143  00E3               	movwf	(main@dat3+2)^(0+128)
+  1466  1144  1283               	bcf	3,5	;RP0=0, select bank0
+  1467  1145  1303               	bcf	3,6	;RP1=0, select bank0
+  1468  1146  083F               	movf	?___fldiv+1,w
+  1469  1147  1683               	bsf	3,5	;RP0=1, select bank1
+  1470  1148  1303               	bcf	3,6	;RP1=0, select bank1
+  1471  1149  00E2               	movwf	(main@dat3+1)^(0+128)
+  1472  114A  1283               	bcf	3,5	;RP0=0, select bank0
+  1473  114B  1303               	bcf	3,6	;RP1=0, select bank0
+  1474  114C  083E               	movf	?___fldiv,w
+  1475  114D  1683               	bsf	3,5	;RP0=1, select bank1
+  1476  114E  1303               	bcf	3,6	;RP1=0, select bank1
+  1477  114F  00E1               	movwf	main@dat3^(0+128)
+  1478  1150                     l3670:	
+  1479  1150  1283               	bcf	3,5	;RP0=0, select bank0
+  1480  1151  1303               	bcf	3,6	;RP1=0, select bank0
+  1481  1152  081E               	movf	30,w	;volatile
+  1482  1153                     l3672:	
+  1483                           
+  1484                           ;Lab03.c: 83:         _delay((unsigned long)((500)*(4000000/4000000.0)));
+  1485  1153  30A5               	movlw	165
+  1486  1154  1683               	bsf	3,5	;RP0=1, select bank1
+  1487  1155  1303               	bcf	3,6	;RP1=0, select bank1
+  1488  1156  00C9               	movwf	??_main^(0+128)
+  1489  1157                     u6127:	
+  1490  1157  0BC9               	decfsz	??_main^(0+128),f
+  1491  1158  2957               	goto	u6127
   1492  1159  295A               	nop2
   1493  115A                     l3674:	
   1494                           
@@ -11883,7 +11883,7 @@ DATA                 0      0       0      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.10 build 88905656 
-Symbol Table                                                                                   Sun Feb 09 22:21:56 2020
+Symbol Table                                                                                   Mon Feb 10 12:43:42 2020
 
             ___fldiv@aexp 0057              ___fldiv@bexp 0056                         pc 0002  
             ___fldiv@sign 004F               __CFG_CP$OFF 0000                        l70 199B  
@@ -12090,7 +12090,7 @@ Symbol Table                                                                    
                     l2692 0D0C                      l2684 0CF9                      l2676 0CE2  
                     l2668 0CD2                      l2852 0BE3                      l2836 0A3F  
                     l2828 0950                      l2844 0AF4                      l3396 05D8  
-                    l3388 05A6                      l3660 1088                      l3652 1075  
+                    l3388 05A6                      l3660 10E2                      l3652 1075  
                     l3644 1059                      l3636 104D                      l3628 1041  
                     l3582 12C2                      l3574 12AE                      l3566 1297  
                     l3558 127E                      l3494 11AC                      l3486 119D  
@@ -12099,26 +12099,26 @@ Symbol Table                                                                    
                     l2774 0FD7                      l2758 0F75                      l2766 0FA6  
                     l2694 0D1C                      l2686 0CFE                      l2678 0CE7  
                     l2870 195C                      l2862 194D                      l2854 0BEA  
-                    l2846 0AFB                      l3398 05DD                      l3670 10F4  
-                    l3662 10E3                      l3654 107E                      l3646 105E  
+                    l2846 0AFB                      l3398 05DD                      l3670 1150  
+                    l3662 10E5                      l3654 107E                      l3646 105E  
                     l3638 1050                      l3592 12E3                      l3584 12C3  
                     l3576 12AF                      l3568 129F                      l3496 11B4  
                     l3488 11A1                      l2792 1983                      l2952 1FB2  
                     l2944 1F80                      l2928 1F4F                      l2880 1EA1  
                     l2784 0FF7                      l2776 0FD9                      l2768 0FB3  
                     l2696 0D29                      l2688 0D03                      l2864 194E  
-                    l3672 114F                      l3664 10EA                      l3656 1084  
+                    l3672 1153                      l3664 10EC                      l3656 1084  
                     l3648 1063                      l3594 12E8                      l3586 12C7  
                     l3578 12B8                      l3498 11B5                      l2794 1990  
                     l2954 1FB3                      l2946 1F89                      l2938 1F65  
                     l2890 1EC9                      l2874 1E85                      l2778 0FE7  
                     l2698 0D46                      l2866 1954                      l2858 0C72  
-                    l3674 115A                      l3666 10F0                      l3658 1087  
+                    l3674 115A                      l3666 10F2                      l3658 1087  
                     l3596 12F6                      l3588 12DB                      l2796 193E  
                     l2788 1978                      l2980 19C2                      l2972 1FE7  
                     l2964 1FCE                      l2956 1FBC                      l2948 1F92  
                     l2892 1ECB                      l2876 1E98                      l2868 195A  
-                    l3676 1176                      l3668 10F3                      l3598 12FA  
+                    l3676 1176                      l3668 10F5                      l3598 12FA  
                     l2798 1941                      l2982 19C6                      l2974 1FF7  
                     l2958 1FC6                      l2966 1FE0                      l2894 1ED4  
                     l2886 1EB4                      l3678 1183                      l2992 1BB6  
@@ -12225,7 +12225,7 @@ Symbol Table                                                                    
                     u3661 1713                      u3653 1704                      u3581 168A  
                     u4701 1FC5                      u4541 1EEA                      u3901 0CDB  
                     u4445 0BA2                      u4365 09F7                      u5501 0373  
-                    u5421 01A2                      u6117 10E7                      u6070 1309  
+                    u5421 01A2                      u6117 10E9                      u6070 1309  
                     u3830 17DB                      u3750 178A                      u3670 1730  
                     u3662 1718                      u3654 1705                      u5270 1E77  
                     u5190 1E16                      u4710 1FCD                      u4630 1F39  
@@ -12236,7 +12236,7 @@ Symbol Table                                                                    
                     u4711 1FCC                      u4631 1F38                      u4535 1ED6  
                     u3911 0CE1                      u4295 14A6                      u5511 0382  
                     u5431 01DC                      u5351 008E                      u6207 006F  
-                    u6127 1155                      u6080 1326                      u3840 17E8  
+                    u6127 1157                      u6080 1326                      u3840 17E8  
                     u3760 1790                      u3680 1755                      u3656 170B  
                     u3592 16A4                      u4800 19E0                      u5280 1E7B  
                     u4640 1F4F                      u4560 1F04                      u3920 0CE7  

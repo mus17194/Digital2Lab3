@@ -2782,7 +2782,7 @@ void main(void) {
     PORTE = 0;
     TRISE = 0;
 
-    ANSEL = 0b00000011;
+    ANSEL = 0b00001111;
     ANSELH = 0;
 
     int dat1;
@@ -2798,19 +2798,19 @@ void main(void) {
 
     while(1) {
 
-        init_ADC(0x00);
-        PIR1bits.ADIF = 0;
-        dat1 = ADRESH;
-        dat3 = (5.0*ADRESH)/255;
-        _delay((unsigned long)((500)*(4000000/4000000.0)));
-
-
         init_ADC(0x01);
         PIR1bits.ADIF = 0;
+        dat4 = (5.0*ADRESH)/254.0;
         dat2 = ADRESH;
-        dat4 = (5.0*ADRESH)/255;
-        _delay((unsigned long)((50)*(4000000/4000.0)));
 
+        _delay((unsigned long)((500)*(4000000/4000000.0)));
+
+        init_ADC(0x00);
+        PIR1bits.ADIF = 0;
+        dat3 = (5.0*ADRESH)/254.0;
+        dat1 = ADRESH;
+
+        _delay((unsigned long)((500)*(4000000/4000000.0)));
 
         sprintf(savechain, "%1.2f  %1.2f", dat3, dat4);
         setLCD(2,1);

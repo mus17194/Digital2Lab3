@@ -367,8 +367,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Lab03.c: 53:     TRISE = 0;
 [e = _TRISE -> -> 0 `i `uc ]
 "55
-[; ;Lab03.c: 55:     ANSEL = 0b00000011;
-[e = _ANSEL -> -> 3 `i `uc ]
+[; ;Lab03.c: 55:     ANSEL = 0b00001111;
+[e = _ANSEL -> -> 15 `i `uc ]
 "56
 [; ;Lab03.c: 56:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
@@ -404,35 +404,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 141 ]
 {
 "71
-[; ;Lab03.c: 71:         init_ADC(0x00);
-[e ( _init_ADC (1 -> -> 0 `i `uc ]
+[; ;Lab03.c: 71:         init_ADC(0x01);
+[e ( _init_ADC (1 -> -> 1 `i `uc ]
 "72
 [; ;Lab03.c: 72:         PIR1bits.ADIF = 0;
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "73
-[; ;Lab03.c: 73:         dat1 = ADRESH;
-[e = _dat1 -> _ADRESH `i ]
+[; ;Lab03.c: 73:         dat4 = (5.0*ADRESH)/254.0;
+[e = _dat4 -> / * .5.0 -> -> _ADRESH `i `d .254.0 `f ]
 "74
-[; ;Lab03.c: 74:         dat3 = (5.0*ADRESH)/255;
-[e = _dat3 -> / * .5.0 -> -> _ADRESH `i `d -> -> 255 `i `d `f ]
-"75
-[; ;Lab03.c: 75:         _delay((unsigned long)((500)*(4000000/4000000.0)));
+[; ;Lab03.c: 74:         dat2 = ADRESH;
+[e = _dat2 -> _ADRESH `i ]
+"76
+[; ;Lab03.c: 76:         _delay((unsigned long)((500)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "78
-[; ;Lab03.c: 78:         init_ADC(0x01);
-[e ( _init_ADC (1 -> -> 1 `i `uc ]
+[; ;Lab03.c: 78:         init_ADC(0x00);
+[e ( _init_ADC (1 -> -> 0 `i `uc ]
 "79
 [; ;Lab03.c: 79:         PIR1bits.ADIF = 0;
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "80
-[; ;Lab03.c: 80:         dat2 = ADRESH;
-[e = _dat2 -> _ADRESH `i ]
+[; ;Lab03.c: 80:         dat3 = (5.0*ADRESH)/254.0;
+[e = _dat3 -> / * .5.0 -> -> _ADRESH `i `d .254.0 `f ]
 "81
-[; ;Lab03.c: 81:         dat4 = (5.0*ADRESH)/255;
-[e = _dat4 -> / * .5.0 -> -> _ADRESH `i `d -> -> 255 `i `d `f ]
-"82
-[; ;Lab03.c: 82:         _delay((unsigned long)((50)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;Lab03.c: 81:         dat1 = ADRESH;
+[e = _dat1 -> _ADRESH `i ]
+"83
+[; ;Lab03.c: 83:         _delay((unsigned long)((500)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
 "85
 [; ;Lab03.c: 85:         sprintf(savechain, "%1.2f  %1.2f", dat3, dat4);
 [e ( _sprintf (1 , , (. , &U _savechain :s 2C -> _dat3 `d -> _dat4 `d ]
