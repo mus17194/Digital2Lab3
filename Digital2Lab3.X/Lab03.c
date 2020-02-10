@@ -34,6 +34,8 @@
 #include <xc.h>
 #include <stdio.h>
 #include "LCD.h"
+#include <stdint.h>
+
 
 #define _XTAL_FREQ 4000000
 
@@ -50,20 +52,39 @@ void main(void) {
     PORTE = 0;
     TRISE = 0;
     
-    ANSEL = 0;
+    ANSEL = 0b00000011;
     ANSELH = 0;
+    
+    int dat1;
+    int dat2;
+    float dat3;
+    float dat4;
+    char savechain[16];
     
     startLCD();
     limpiarLCD();
-    
+    setLCD(1,1);
+    escribirLCD("S1     S2     S3");
+
     while(1) {
-        setLCD(1,1);
-        escribirLCD("S1");
-        setLCD(1,8);
-        escribirLCD("S2");
-        setLCD(1,15);
-        escribirLCD("S3");
-        __delay_ms(5000);
+        
+        init_ADC(0x00);
+        PIR1bits.ADIF = 0;
+        dat1 = ADRESH;
+        dat3 = (5.0*ADRESH)/255;
+        __delay_us(500);
+        
+        
+        init_ADC(0x01);
+        PIR1bits.ADIF = 0;
+        dat2 = ADRESH;
+        dat4 = (5.0*ADRESH)/255;
+        __delay_ms(50);
+        
+        
+        sprintf(savechain, "%1.2f  %1.2f", dat3, dat4);
+        setLCD(2,1);
+        escribirLCD(savechain);
     
     }
     
